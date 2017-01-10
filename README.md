@@ -1,5 +1,23 @@
 # The SoapUI project
 
+## SoapUI Instalation
+
+```bash
+git clone git@github.com:joao-parana/soapui-5.3.0.git
+cd soapui-5.3.0
+mvn -Dmaven.test.skip=true install
+cd soapui-installer
+mvn assembly:single
+# No caso do macOS é gerado um ZIP. No caso do Linux é gerado um TAR.GZ e devemos usar o coamndo tar em vez de jar
+jar -xf target/assemblies/SoapUI-5.3.0-mac-bin.zip 
+chmod a+rx SoapUI-5.3.0/bin/*.sh
+mkdir -p ~/bin
+mv SoapUI-5.3.0  ~/bin/
+# Invocand o aplicativo
+~/bin/SoapUI-5.3.0/bin/soapui.sh 
+```
+
+
 ## Structure and submodules
 
 * *[soapui](soapui)* - The core module that creates the SoapUI jar
